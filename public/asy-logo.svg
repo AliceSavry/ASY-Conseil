@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+    <defs>
+        <!-- Dégradé linéaire principal (Bleu -> Violet -> Vert -> Orange) -->
+        <linearGradient id="mainGrad" x1="40" y1="30" x2="160" y2="150" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#4A90E2" />
+            <stop offset="33%" stop-color="#9B59B6" />
+            <stop offset="66%" stop-color="#2ECC71" />
+            <stop offset="100%" stop-color="#F39C12" />
+        </linearGradient>
+
+        <!-- Masque pour créer la ligne de découpe (style "éclair" ou courbe de croissance) -->
+        <mask id="cutMask">
+            <!-- Fond blanc : tout ce qui est blanc sera visible -->
+            <rect width="200" height="200" fill="white" />
+            <!-- Ligne noire : tout ce qui est tracé en noir sera découpé/transparent -->
+            <path d="M -5 140 Q 55 155, 95 105 L 110 130 L 180 40"
+                  fill="none" stroke="black" stroke-width="10"
+                  stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="4" />
+        </mask>
+    </defs>
+
+    <!-- Groupe principal avec le masque de découpe appliqué -->
+    <g mask="url(#cutMask)">
+        <!-- Triangle de base aux coins arrondis avec le dégradé principal -->
+        <path d="M 93 43 
+                 Q 100 30, 107 43 
+                 L 158 137 
+                 Q 165 150, 150 150 
+                 L 50 150 
+                 Q 35 150, 42 137 
+                 Z" 
+              fill="url(#mainGrad)" />
+    </g>
+</svg>
